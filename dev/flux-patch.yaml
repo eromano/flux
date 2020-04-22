@@ -1,1 +1,12 @@
-I don't know
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.app: "semver: >= 0.24.1, <0.50.0"
+spec:
+  template:
+    spec:
+      containers:
+      - name: "nginx-ingress-controller" 
+        image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1
